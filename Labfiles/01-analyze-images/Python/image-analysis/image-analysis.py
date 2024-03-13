@@ -73,7 +73,10 @@ def AnalyzeImage(image_filename, image_data, cv_client):
                 print(" Caption: '{}' (confidence: {:.2f}%)".format(caption.text, caption.confidence * 100))
 
         # Get image tags
-
+        if result.tags is not None:
+            print("\nTags:")
+            for tag in result.tags.list:
+                print(" Tag: '{}' (confidence: {:.2f}%)".format(tag.name, tag.confidence * 100))
 
         # Get objects in the image
 
